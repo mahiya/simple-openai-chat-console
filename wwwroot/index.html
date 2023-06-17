@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+    <link
+        href="https://azurecomcdn.azureedge.net/cvt-6ce4fb2122db3c5c8ff787c6c9f4d1291ae55347930af2c428fc09f6a6dc5b03/images/icon/favicon.ico"
+        rel="icon" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Azure OpenAI Service Simple Chat UI</title>
+</head>
+
+<body>
+
+    <div id="app" v-cloak>
+        <div class="p-3 h-100 bg-light">
+            <div class="messages">
+                <div class="row mb-2" v-for="message in messages">
+                    <div class="col col-auto col-icon px-0" style="text-align: right">
+                        <img v-if="message.role == 'assistant'" class="messageIcon" src="images/assistant.png" />
+                    </div>
+                    <div class="col">
+                        <div class="card p-2">{{message.message}}</div>
+                    </div>
+                    <div class="col col-auto col-icon px-0">
+                        <img v-if="message.role == 'user'" class="messageIcon" src="images/user.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="userMessage p-3 w-100 bg-light border-top">
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-send"></i>
+                </span>
+                <input class="form-control" placeholder="メッセージを入力して Enter キーで送信します" v-model="userMessage"
+                    v-on:keydown.enter="sendUserMessage()" v-bind:disabled="receiving">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@7.0.7/dist/browser/signalr.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

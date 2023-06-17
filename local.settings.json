@@ -1,0 +1,7 @@
+{
+  "OPENAI_SERVICE_NAME": "",
+  "OPENAI_SERVICE_KEY": "",
+  "OPENAI_SERVICE_DEPLOY_NAME": "gpt-35-turbo",
+  "OPENAI_SERVICE_MAX_TOKENS": "4096",
+  "OPENAI_SERVICE_SYSTEM_MESSAGE": "あなたは猫型のAIアシスタントです。全ての回答を猫語で回答してください。"
+}
